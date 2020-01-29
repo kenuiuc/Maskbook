@@ -15,8 +15,10 @@
     "build:ios": "run-s build:ios:webpack build:ios:ext:prebuilt",
     "build:ios:webpack": "webpack --mode production --wk-webview",
     "build:ios:ext:prebuilt": "ts-node scripts/webextensiom-shim-prebuilt.ts",
+    "build:pika": "node scripts/pika-webpack-builder.js && ttsc -p tsconfig_pika.json",
     "compile:contracts": "./scripts/contracts.sh",
     "install": "ts-node scripts/postinstall.ts",
+    "install:pika": "snowpack install --dest ./esm-dist/web_modules/ --clean",
     "lint": "eslint src/ --ext .ts,.tsx --fix",
     "lint:report": "eslint src/ --ext .ts,.tsx --format junit -o reports/junit/eslint-results.xml",
     "lint:typecoverage": "type-coverage --strict --ignore-catch --detail --at-least 98.5",
@@ -105,6 +107,19 @@
     "webcrypto-liner": "1.0.2",
     "webextension-polyfill": "^0.6.0"
   },
+  "snowpack": {
+    "webDependencies": [
+      "elliptic",
+      "@holoflows/kit",
+      "@holoflows/kit/es/util/sleep.js",
+      "json-stable-stringify",
+      "lodash-es",
+      "idb/with-async-ittr.js",
+      "pvtsutils",
+      "typeson",
+      "async-call-rpc"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
@@ -160,6 +175,7 @@
     "react-devtools": "^4.6.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-test-renderer": "^16.13.1",
+    "snowpack": "^1.7.1",
     "storybook-addon-figma": "^0.1.0",
     "storybook-addon-i18n": "^5.1.13",
     "storybook-addon-material-ui": "^0.9.0-alpha.21",

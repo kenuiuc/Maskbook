@@ -97,6 +97,10 @@ interface WalletAddTokenDialogProps {
 
 const useAddTokenStyles = makeStyles((theme) =>
     createStyles({
+        label: {
+            paddingLeft: 0,
+            paddingRight: 0,
+        },
         textfield: {
             width: '100%',
             padding: theme.spacing(1, 0),
@@ -145,6 +149,7 @@ export function WalletAddTokenDialog(props: WalletAddTokenDialogProps) {
                         // />
                         <>
                             <FormControlLabel
+                                className={classes.label}
                                 control={
                                     <Switch
                                         checked={useRinkeby}

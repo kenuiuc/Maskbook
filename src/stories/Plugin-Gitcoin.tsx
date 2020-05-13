@@ -20,6 +20,7 @@ storiesOf('Plugin: Gitcoin', module)
         }`}
                 </style>
                 <PreviewCard
+                    originalURL={text('url', '')}
                     onRequestGrant={action('Request grant')}
                     hasNoPermission={boolean('Has no permission', false)}
                     requestPermission={action('Request permission')}
